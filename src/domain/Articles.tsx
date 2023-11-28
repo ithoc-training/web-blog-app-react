@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import {Table} from 'react-bootstrap';
 import ArticleService from "../services/ArticleService";
 import Article from "../model/Article";
@@ -6,6 +7,8 @@ const articleService: ArticleService = new ArticleService();
 let articles: Article[] = articleService.findAll();
 
 export default function Articles() {
+    const navigate = useNavigate();
+
     return (
         <Table striped bordered hover>
             <thead>
@@ -22,7 +25,7 @@ export default function Articles() {
                     <td>{article.title}</td>
                     <td>{article.content}</td>
                     <td>{article.author}</td>
-                    <td><button onClick={() => alert(article.id)}>Details</button></td>
+                    <td><button onClick={() => navigate(`/article-details/${article.id}`)}>Details</button></td>
                 </tr>
             ))}
             </tbody>
