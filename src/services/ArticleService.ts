@@ -19,4 +19,8 @@ export default class ArticleService {
         return this.articles;
     }
 
+    public findById(id: string): Article | undefined {
+        return this.articles.find(article => article.id === id);
+    }
+
 }

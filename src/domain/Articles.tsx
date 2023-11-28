@@ -10,19 +10,19 @@ export default function Articles() {
         <Table striped bordered hover>
             <thead>
             <tr>
-                <th>#</th>
                 <th>Title</th>
                 <th>Content</th>
                 <th>Author</th>
+                <th>Action...</th>
             </tr>
             </thead>
             <tbody>
             {articles.map((article) => (
                 <tr key={article.id}>
-                    <td>{article.id}</td>
                     <td>{article.title}</td>
                     <td>{article.content}</td>
                     <td>{article.author}</td>
+                    <td><button onClick={() => alert(article.id)}>Details</button></td>
                 </tr>
             ))}
             </tbody>
